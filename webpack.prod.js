@@ -5,6 +5,8 @@ const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const StylesLoader = require('styles-loader')
+const stylesLoader = new StylesLoader()
 
 module.exports = {
     entry: './src/client/index.js',
@@ -26,7 +28,9 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+                use: ['style-loader','css-loader','sass-loader']
+                
+               // use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
         ],
     },
