@@ -9,30 +9,27 @@ const StylesLoader = require('styles-loader')
 const stylesLoader = new StylesLoader()
 
 module.exports = {
-    entry: './src/client/index.js',
     mode: 'production',
-       output: {
+    entry: './src/client/index.js',
+     output: {
          libraryTarget: 'var',
          library: 'Client'
      },
+     optimization: {
+        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        },
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test:  /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader','css-loader','sass-loader']
-            },
-            {
-                test: /\.scss$/,
-                use: ['style-loader','css-loader','sass-loader']
-                
-               // use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-            },
-        ],
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+                },
+        ]
     },
     plugins: [
         new HtmlWebPackPlugin({
