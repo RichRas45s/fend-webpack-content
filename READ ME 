@@ -1,0 +1,2 @@
+USING HOMEBREW  source $(brew --prefix nvm)/nvm.sh 
+
