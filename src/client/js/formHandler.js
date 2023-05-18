@@ -10,6 +10,7 @@ function handleSubmit(event) {
   formEl.addEventListener('submit', event => {
   event.preventDefault();
   const formdata = new FormData(formEl);
+
   formdata.append("key", process.env.API_KEY);
   formdata.append("txt", "YOUR TEXT HERE");
   formdata.append("lang", "en");  // 2-letter code, like en es fr ...
