@@ -2,7 +2,7 @@
 // projectData = {};
 const dotenv = require('dotenv');
 require('dotenv').config();
-console.log(`Yo tAYO yur API key is ${process.env.API_KEY}`);
+// console.log(`Yo tAYO yur API key is ${process.env.API_KEY}`);
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
