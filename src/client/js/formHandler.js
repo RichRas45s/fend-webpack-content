@@ -49,10 +49,8 @@ const loadData =async() => {
   }
   };
   loadData().then((data) => console.log(data));
+
 })}
 
-  
-
-
-export { handleSubmit }
+  export { handleSubmit }
 
