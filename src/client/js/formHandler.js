@@ -27,11 +27,14 @@ const requestOptions = {
     status: response.status, 
     body: response.json(data)
  }))
-  .then(({ status, body }) => console.log(status, body))
+
+  //.then(({ status, body }) => console.log(status, body))
+
+  .then(function(data) {
+    document.getElementById('results').innerHTML = data.formData
+  })
+  .catch(error => console.log('error', error));
   
-  //.then (res => res.json())
-  //.then (data => console.log(data))
-    .catch(error => console.log('error', error));
 
 })}
 
