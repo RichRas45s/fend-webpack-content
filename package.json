@@ -9,9 +9,9 @@
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "keywords": [],
-  "author": "",
+  "author": "Richard Rigaud",
   "license": "ISC",
-  "description": "",
+  "description": "app that evaluates text sentiments",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1"
