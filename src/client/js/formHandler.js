@@ -22,7 +22,7 @@ const requestOptions = {
     body: formData,
     redirect: 'follow'
   };
-  const response = fetch(url, requestOptions)
+  /*const response = fetch(url, requestOptions)
   .then(response => ({
     status: response.status, 
     body: response.json(data)
@@ -31,11 +31,24 @@ const requestOptions = {
   //.then(({ status, body }) => console.log(status, body))
 
   .then(function(data) {
-    document.getElementById('results').innerHTML = data.formData
+    document.getElementById('results').innerHTML = data.results
   })
   .catch(error => console.log('error', error));
   
+*/
 
+
+const loadData =async() => {
+  try { 
+  const url="https://api.meaningcloud.com/sentiment-2.1";
+  const response = await fetch(url, requestOptions)
+  const data = await response.json()
+  return data;
+  } catch (err) {
+  console.log('error');
+  }
+  };
+  loadData().then((data) => console.log(data));
 })}
 
   
