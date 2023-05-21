@@ -30,19 +30,8 @@ const requestOptions = {
   .then(({ status, body }) => console.log(status, body))
   .catch(error => console.log('error', error));
 
- /*
-const loadData =async() => {
-  try { 
-  const url="https://api.meaningcloud.com/sentiment-2.1";
-  const response = await fetch(url, requestOptions)
-  const data = await response.json()
-  return data;
-  } catch (err) {
-  console.log('error');
-  }
-  };
-  loadData().then((data) => console.log(data));
-*/
+
+
 })}
 
   export { handleSubmit }
