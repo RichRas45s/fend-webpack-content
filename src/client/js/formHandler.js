@@ -36,8 +36,6 @@ const requestOptions = {
   .catch(error => console.log('error', error));
   
 */
-
-
 const loadData =async() => {
   try { 
   const url="https://api.meaningcloud.com/sentiment-2.1";
