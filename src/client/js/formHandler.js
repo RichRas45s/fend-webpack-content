@@ -13,9 +13,6 @@ function handleSubmit(event) {
   const data = Object.fromEntries (formData)
   console.log(formData);
 
-  //loadData ('/add',{ agreement: data.agreement, subjectivity: data.subjectivity, confidence: data.confidence})
-  //updateUI()
-
   formData.append("key", 'c6bf3ea5f0d6756d364e89f8fb203e04');
   formData.append("txt", "YOUR TEXT HERE");
   formData.append("lang", "en");  // 2-letter code, like en es fr ...
@@ -27,10 +24,32 @@ const requestOptions = {
   };
 
   const response = fetch(url, requestOptions)
-  .then(response => response.json())
-  .then (responseJson => console.log(responseJson))
-  .catch(error => console.log('error', error))  
-/*
+  .then((response) => {
+    if (response.ok) {
+    return response.json(); 
+    }else {
+      throw new Error ('NETWORK RESPONSE NOT OK');
+    }
+  })
+  .then(function(data) {
+    console.log(data);
+   displaySentiments(data);
+  })
+  .catch((error) => {
+    console.error("FETCH ERROR:", error);
+  });
+    
+  function displaySentiments(data)  {
+  const agreement= data.agreement
+  const agreeDiv= document.getElementById('agreement');
+  
+  }
+
+
+
+
+
+  /*
 const loadData =async() => {
   try { 
   const url= "https://api.meaningcloud.com/sentiment-2.1";
