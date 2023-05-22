@@ -1,4 +1,4 @@
-//const url="https://api.meaningcloud.com/sentiment-2.1"
+const url="https://api.meaningcloud.com/sentiment-2.1"
 
 function handleSubmit(event) {
    // check what text was put into the form field
@@ -16,7 +16,7 @@ function handleSubmit(event) {
   //loadData ('/add',{ agreement: data.agreement, subjectivity: data.subjectivity, confidence: data.confidence})
   //updateUI()
 
-  formData.append("key", process.env.API_KEY);
+  formData.append("key", 'c6bf3ea5f0d6756d364e89f8fb203e04');
   formData.append("txt", "YOUR TEXT HERE");
   formData.append("lang", "en");  // 2-letter code, like en es fr ...
 
@@ -25,15 +25,12 @@ const requestOptions = {
     body: formData,
     redirect: 'follow'
   };
-/*
-  const response = fetch(url, requestOptions)
-  .then(response => ({
-    status: response.status, 
-    body: response.json()
-  }))
-  .then(({ status, body }) => console.log(status, body))
-  .catch(error => console.log('error', error))  */
 
+  const response = fetch(url, requestOptions)
+  .then(response => response.json())
+  .then (responseJson => console.log(responseJson))
+  .catch(error => console.log('error', error))  
+/*
 const loadData =async() => {
   try { 
   const url= "https://api.meaningcloud.com/sentiment-2.1";
@@ -45,30 +42,14 @@ const loadData =async() => {
   }
   };
   loadData().then((data) => console.log(data));
-
+*/
 })}
 
 
 
 
 
-async function updateUI() {
-  const request = await fetch('/all');
-  try {
-    // transform into JSON
-    const allData = await request.json();
-    console.log(allData);
-    // Write updated data to DOM elements
-    document.getElementById('results').innerHTML = allData.result;
 
-
-
-
-  } catch (error) {
-    console.log('error', error);
-    //appropriately handle the error
-  }
-}
 
   export { handleSubmit }
 
