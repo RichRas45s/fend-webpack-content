@@ -13,6 +13,8 @@ function handleSubmit(event) {
   const data = Object.fromEntries (formData)
   // console.log(formData);
   const inputText= document.getElementById('text').value;
+  // const inputDiv=document.getElementById('score_tag');
+  // inputText.innerHTML=('results');
 
   formData.append("key", 'c6bf3ea5f0d6756d364e89f8fb203e04');
   formData.append("txt", inputText);
@@ -55,9 +57,17 @@ const requestOptions = {
   const irony= data.irony;
   const ironDiv= document.getElementById('irony');
   ironDiv.innerHTML=irony;   
-  // const model= data.model;
-  // const modelDiv=document.getElementById('model');
-  // modelDiv.innerHTML=model;
+  const model= data.model;
+  const modelDiv=document.getElementById('model');
+  modelDiv.innerHTML=model;  
+  const score= data.score_tag;
+  const scoreDiv=document.getElementById('score_tag');
+  scoreDiv.innerHTML=score; 
+  const subject= data.subjectivity;
+  const subDiv=document.getElementById('subjectivity');
+  scoreDiv.innerHTML=subject; 
+
+
 
  
   }
