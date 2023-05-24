@@ -9,8 +9,7 @@ import './styles/header.scss'
 
 console.log(checkForName);
 
-alert("I MAN Ras Tayo will be Webdev serving U !")
-alert('Me say U cyan touch dis ah Bwoy yah!')
+alert("Hi Richard will be Webdev serving U !")
 console.log("JAH JAH!!!");
 
 export {
