@@ -20,12 +20,14 @@
             <div class="">
                 navigation
             </div>
-        </header>
+        </header> 
 
         <main> 
             <section> <H1> LANGUAGE EVALUATOR </H1>
                 <form class="form" onsubmit="return Client.handleSubmit(event)">
                     <input id="url" type="text" name="input" value="" placeholder="Enter URL here">
+                    <textarea class= "myInput" id="text" placeholder="Enter Text  here" rows="5" cols="88"></textarea>
+                   <!-- <input id="text" type="text" name="input" value="" placeholder="Enter Text  here"> -->
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             </section>
@@ -36,6 +38,11 @@
                 <div id ="text"></div>
                 <div id ="agreement"></div>
                 <div id ="subjectivity"></div>
+                <div id ="confidence"></div>
+                <div id ="irony"></div>
+                <div id ="model"></div> 
+
+
             </section>
         </main>
 
