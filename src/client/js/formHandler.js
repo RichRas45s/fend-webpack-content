@@ -2,7 +2,7 @@ const url="https://api.meaningcloud.com/sentiment-2.1"
 
 function handleSubmit(event) {
    // check what text was put into the form field
-  let formText = document.getElementById('url').value
+  const formText = document.getElementById('url').value
   Client.checkForName(formText)
   console.log("::: Form Submitted :::")
    
@@ -11,10 +11,11 @@ function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(formEl);
   const data = Object.fromEntries (formData)
-  console.log(formData);
+  // console.log(formData);
+  const inputText= document.getElementById('text').value;
 
   formData.append("key", 'c6bf3ea5f0d6756d364e89f8fb203e04');
-  formData.append("txt", "YOUR TEXT HERE");
+  formData.append("txt", inputText);
   formData.append("lang", "en");  // 2-letter code, like en es fr ...
 
 const requestOptions = {
@@ -35,14 +36,30 @@ const requestOptions = {
     console.log(data);
    displaySentiments(data);
   })
+  //.then(function(data) {
+   // document.getElementById('results').innerHTML = data.message
+
   .catch((error) => {
     console.error("FETCH ERROR:", error);
   });
-    
-  function displaySentiments(data)  {
-  const agreement= data.agreement
-  const agreeDiv= document.getElementById('agreement');
   
+ // document.getElementById('agreement').innerHTML=data[0]
+  
+  function displaySentiments(data)  {
+  const agreement= data.agreement;
+  const agreeDiv= document.getElementById('agreement');
+  agreeDiv.innerHTML= agreement;
+  const confidence = data.confidence;
+  const confiDiv = document.getElementById('confidence');
+  confiDiv.innerHTML=confidence;
+  const irony= data.irony;
+  const ironDiv= document.getElementById('irony');
+  ironDiv.innerHTML=irony;   
+  // const model= data.model;
+  // const modelDiv=document.getElementById('model');
+  // modelDiv.innerHTML=model;
+
+ 
   }
 
 
