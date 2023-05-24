@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-// projectData = {};
+projectData = {};
 const dotenv = require('dotenv');
 require('dotenv').config();
 // console.log(`Yo tAYO yur API key is ${process.env.API_KEY}`);
@@ -24,19 +24,47 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
-app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+ app.get('/', function (req, res) {
+    res.sendFile('dist/index.html') 
     // res.sendFile(path.resolve('src/client/views/index.html'))
 })
+
+/* app.get('/all', getData);
+ 
+function getData (req, res) {
+    res.send(projectData);
+    console.log(projectData);
+}  */
 
 // designates what port the app will listen to for incoming requests
 app.listen(8081, function () {
     console.log('Hey Tayo listening on port 8081!')
 })
+
+
 app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+    res.send(mockAPIResponse)  
 })
-// const textapi = meaning({
-   // application_id: process.env.API_ID,
-   // application_key: process.env.API_KEY
-// });
+
+process.env.API_KEY
+console.log(`Your API key is ${process.env.API_KEY}`);
+
+// const  meanApi = new meanKey ({
+//     application_key: process.env.API_KEY
+
+//  });
+
+
+/* app.post('/add', addData);
+
+ function addData (req,res) {
+   console.log(req.body);
+   newEntry = {
+    agreement: req.body.agreement,
+    subjectivity: req.body.subjectivity,
+    confidence: req.body.confidence
+   }
+   projectData = newEntry;
+   res.send(projectData)
+   console.log(projectData) 
+} */
