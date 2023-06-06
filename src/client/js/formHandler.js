@@ -65,7 +65,10 @@ const requestOptions = {
   scoreDiv.innerHTML=score; 
   const subject= data.subjectivity;
   const subDiv=document.getElementById('subjectivity');
-  scoreDiv.innerHTML=subject; 
+  subDiv.innerHTML=subject; 
+  const text=data.text;
+  const textDiv=document.getElementById('text');
+  textDiv.innerHTML=text;
 
 
 
