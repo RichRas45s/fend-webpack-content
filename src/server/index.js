@@ -1,5 +1,3 @@
-// Setup empty JS object to act as endpoint for all routes
-projectData = {};
 const dotenv = require('dotenv');
 require('dotenv').config();
 // console.log(`Yo tAYO yur API key is ${process.env.API_KEY}`);
@@ -49,22 +47,9 @@ app.get('/test', function (req, res) {
 process.env.API_KEY
 console.log(`Your API key is ${process.env.API_KEY}`);
 
-// const  meanApi = new meanKey ({
-//     application_key: process.env.API_KEY
+ let  meanApi = new meanKey ({
+    application_key: process.env.API_KEY
 
-//  });
+});
 
 
-/* app.post('/add', addData);
-
- function addData (req,res) {
-   console.log(req.body);
-   newEntry = {
-    agreement: req.body.agreement,
-    subjectivity: req.body.subjectivity,
-    confidence: req.body.confidence
-   }
-   projectData = newEntry;
-   res.send(projectData)
-   console.log(projectData) 
-} */
