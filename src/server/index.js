@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
-require('dotenv').config();
-// console.log(`Yo tAYO yur API key is ${process.env.API_KEY}`);
+dotenv.config();
+
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
@@ -44,12 +44,7 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)  
 })
 
+
 process.env.API_KEY
 console.log(`Your API key is ${process.env.API_KEY}`);
-
- let  meanApi = new meanKey ({
-    application_key: process.env.API_KEY
-
-});
-
 
