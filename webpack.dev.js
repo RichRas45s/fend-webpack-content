@@ -5,6 +5,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const { merge } = require('webpack-merge')
 const StylesLoader = require('styles-loader')
 const stylesLoader = new StylesLoader()
+const { EnvironmentPlugin } = require('webpack');
 
 module.exports = {
     entry: './src/client/index.js',
@@ -43,6 +44,9 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        }),
+        new EnvironmentPlugin({
+            NODE_ENV: 'development'
+          })
     ]
 }
