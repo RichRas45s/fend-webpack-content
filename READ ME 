@@ -1,2 +1,30 @@
-USING HOMEBREW  source $(brew --prefix nvm)/nvm.sh 
+This is my submission to try to help fix a problem I'm having 
+hiding my api Key using .env  process.env in the formhandler.js file. 
+
+I start with  ' source $(brew --prefix nvm)/nvm.sh '  on command line 
+I'm not sure why but after reviewing some error codes on compatibilty and
+dependencies  issues this worked for me, 
+
+
+Using Node 14  & webpack 4  
+
+
+
+I have not styled the project as yet 
+
+just have been working  from the lessons files because i sorted out 
+all dependencies in this project. 
+
+Installed service workers , jest 
+
+
+installed Environment Plugin 
+
+a
+
+
+
+
+
+
 
