@@ -1,5 +1,4 @@
 const url="https://api.meaningcloud.com/sentiment-2.1"
-// const apiKey =`${process.env.API_KEY}`
 function handleSubmit(event) {
    // check what text was put into the form field
   const formText = document.getElementById('url').value
@@ -13,10 +12,9 @@ function handleSubmit(event) {
   const data = Object.fromEntries (formData)
   // console.log(formData);
   const inputText= document.getElementById('text').value;
-  // const inputDiv=document.getElementById('score_tag');
   // inputText.innerHTML=('results');
 
-  formData.append("key", 'c6bf3ea5f0d6756d364e89f8fb203e04' );
+  formData.append("key", `${process.env.API_KEY}`);
   formData.append("txt", inputText);
   formData.append("lang", "en");  // 2-letter code, like en es fr ...
 
