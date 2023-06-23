@@ -1,33 +1,26 @@
 function handleSubmit(event) {
-   // check what text was put into the form field
-  // const formText = document.getElementById('url').value
-  // Client.checkForName(formText)
-  // console.log("::: Form Submitted :::")
-   
+    event.preventDefault();
+
   const formEl = document.querySelector('.form');
   formEl.addEventListener('submit', event => {
-  event.preventDefault();
+  
   const inputText= document.getElementById('text').value;
   // inputText.innerHTML=('results');
   })
-  const formText = document.getElementById('url').value
-  if (Client.checkForName(formText)) {
-    fetch("http://localhost:8081/api", {
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ url: formText })
-    }).then(res => res.json())
-        .then(function (res) {
-            document.getElementById('score_tag').innerHTML = "Score Tag : " + res.score_tag
-            document.getElementById('confidence').innerHTML = "Agreement : " + res.confidence
-            document.getElementById('agreement').innerHTML = "Confidence : " + res.agreement
-            document.getElementById('subjectivity').innerHTML = "Subjectivity : " + res.subjectivity
-            document.getElementById('resultSection').className = ""
+ let formText = document.getElementById('url').value
+  Client.checkForName(formText)
+  console.log("::: Form Submitted :::")
+    fetch("http://localhost:8081/api")
+       .then(res => res.json())
+       .then(function (data) {
+            document.getElementById('results').innerHTML = data.message
+            // document.getElementById('agreement.innerHTML = "Agreement : " + data.agreement
+          
+           
+           
+            // document.getElementById('resultSection').className = ""
         })
-}}
+}
   
 //   function displaySentiments(data)  {
 //   const agreement= data.agreement;
