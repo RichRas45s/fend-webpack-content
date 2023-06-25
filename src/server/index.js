@@ -1,5 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config();
+const fetch =require('node-fetch');
+// const FormData = require('formdata-polyfill')
+const FormData = require('form-data');
 
 var path = require('path')
 const express = require('express')
@@ -25,7 +28,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(express.static('dist'));
-app.use(express.json({limit: '1mb'}))
+app.use(express.json({limit: '10mb'}))
 
 console.log(__dirname)
 console.log(JSON.stringify(mockAPIResponse))
@@ -38,57 +41,62 @@ console.log(JSON.stringify(mockAPIResponse))
 
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Hey Richard listening on port 8081!')
+app.listen(8082, function () {
+    console.log('Hey Richard listening on port 8082 now!')
 })
 
-app.get('/api', function (req, res) {
-  res.send(mockAPIResponse)
-  console.log(mockAPIResponse);
-})
+// app.get('/sentiment', function (req, res) {
+//   res.send(mockAPIResponse)
+//   console.log(mockAPIResponse);
+// })
 
 
 
+// app.post('/api', async (req, res) => {
+//   const url = req.body.url;
+// console.log(url);
+  // let response = await fetch(`${apiURL}key=${apiKey}&url=${url}&lang=en`, { method: "POST" })
+  // let articleResponse = await response.json()
+  // if (articleResponse && articleResponse.status.code == 0)
+  //     res.send(articleResponse)
+  // else res.status(500).send({ message: 'error' , error: error })
+// })
+   
 
-const apiURL ="https://api.meaningcloud.com/sentiment-2.1"
-const apiKey = `${process.env.API_KEY}`
-
-
-app.post('/api', async (req,res)=> {
-    const url = req.body.url;
-    const formdata = new FormData();
-    formdata.append("key", apiKey);
-    formdata.append("txt", url);
-    formdata.append("lang", "EN");  // 2-letter code, like en es fr ...
-
-    const requestOptions = {
-        method: 'POST',
-        body: formData,
-        redirect: 'follow'
-      };
-     const response = fetch(apiURL, requestOptions)
-    .then((response) => {
-      if (response.ok) {
-      return response.json(); 
-      }else {
-        throw new Error ('NETWORK RESPONSE NOT OK');
-      }
-    })
-    .then(function(data) {
-      console.log(data);
-    })
-
-// app.get('/api', function (req, res) {
-//     res.send(mockAPIResponse)
-//     console.log(mockAPIResponse);
-//   })
-})
-
-
-
-
-
+const apiKey = process.env.API_KEY
 
 process.env.API_KEY
 // console.log(`Your API key is ${process.env.API_KEY}`);
 
+
+
+app.get('/sentiment', (req, res) => {
+const apiURL ="https://api.meaningcloud.com/sentiment-2.1"
+const form = new FormData();
+form.append("key", `${process.env.API_KEY}`);
+form.append("txt", "I feel Happy!");
+form.append("lang", "en");  // 2-letter code, like en es fr ...
+
+const requestOptions = {
+  method: 'POST',
+  body: form,
+  redirect: 'follow'
+};
+const response = fetch(apiURL, requestOptions)
+.then((response) => {
+  if (response.ok) {
+  return response.json(); 
+  }else {
+    throw new Error ('NETWORK RESPONSE NOT OK');
+  }
+})
+.then(function(data) {
+  res.send(data)
+  console.log(data);
+})
+
+.catch((error) => {
+  console.error("FETCH ERROR:", error);
+})
+
+ });
