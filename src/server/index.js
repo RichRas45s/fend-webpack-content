@@ -41,8 +41,8 @@ console.log(JSON.stringify(mockAPIResponse))
 
 
 // designates what port the app will listen to for incoming requests
-app.listen(8082, function () {
-    console.log('Hey Richard listening on port 8082 now!')
+app.listen(8081, function () {
+    console.log('Hey Richard listening on port 8081!')
 })
 
 // app.get('/sentiment', function (req, res) {
@@ -70,7 +70,7 @@ process.env.API_KEY
 
 
 
-app.get('/sentiment', (req, res) => {
+app.get('/sentiment', async (req, res) => {
 const apiURL ="https://api.meaningcloud.com/sentiment-2.1"
 const form = new FormData();
 form.append("key", `${process.env.API_KEY}`);
@@ -82,7 +82,7 @@ const requestOptions = {
   body: form,
   redirect: 'follow'
 };
-const response = fetch(apiURL, requestOptions)
+const response = await fetch(apiURL, requestOptions)
 .then((response) => {
   if (response.ok) {
   return response.json(); 
