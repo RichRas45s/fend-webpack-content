@@ -1,4 +1,4 @@
-function handleSubmit(event) {
+ function handleSubmit(event) {
     event.preventDefault();
 
   const formEl = document.querySelector('.form');
@@ -7,20 +7,19 @@ function handleSubmit(event) {
   const inputText= document.getElementById('text').value;
   // inputText.innerHTML=('results');
   })
- let formText = document.getElementById('url').value
-  Client.checkForName(formText)
-  console.log("::: Form Submitted :::")
-    fetch("http://localhost:8081/api")
-       .then(res => res.json())
-       .then(function (data) {
+ const formText = document.getElementById('url').value
+  if (Client.checkForName(formText)) {
+      console.log("::: Form Submitted :::")
+       fetch("http://localhost:8081/sentiment")       
+      .then(res => res.json())
+      .then(function (data) {
             document.getElementById('results').innerHTML = data.message
-            // document.getElementById('agreement.innerHTML = "Agreement : " + data.agreement
-          
-           
+            document.getElementById('agreement').innerHTML = "Agreement : " + data.agreement
+            document.getElementById('confidence').innerHTML = "Confidence : " + data.confidence
            
             // document.getElementById('resultSection').className = ""
         })
-}
+    }};
   
 //   function displaySentiments(data)  {
 //   const agreement= data.agreement;
