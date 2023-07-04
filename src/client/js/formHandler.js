@@ -7,10 +7,11 @@
   const inputText= document.getElementById('text').value;
   // inputText.innerHTML=('results');
   })
- const formText = document.getElementById('url').value
+ const formText = document.getElementById('name').value
   if (Client.checkForName(formText)) {
       console.log("::: Form Submitted :::")
-       fetch("http://localhost:8081/sentiment")       
+       fetch("http://localhost:8081/sentiment")
+       fetch("/sentiment", )        
       .then(res => res.json())
       .then(function (data) {
             document.getElementById('results').innerHTML = data.message
