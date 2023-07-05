@@ -1,26 +1,57 @@
  function handleSubmit(event) {
     event.preventDefault();
+    
+  const formText = document.getElementById('name').value
+    
+  if (Client.checkForName(formText)) {
+      console.log("::: Form Submitted :::")
 
   const formEl = document.querySelector('.form');
   formEl.addEventListener('submit', event => {
+  const formData = new FormData(formEl);
+  const data = Object.fromEntries (formData)
+    // console.log(formData);
   
   const inputText= document.getElementById('text').value;
   // inputText.innerHTML=('results');
-  })
- const formText = document.getElementById('name').value
-  if (Client.checkForName(formText)) {
-      console.log("::: Form Submitted :::")
-       fetch("http://localhost:8081/sentiment")
-       fetch("/sentiment", )        
-      .then(res => res.json())
-      .then(function (data) {
-            document.getElementById('results').innerHTML = data.message
-            document.getElementById('agreement').innerHTML = "Agreement : " + data.agreement
-            document.getElementById('confidence').innerHTML = "Confidence : " + data.confidence
+ 
+  // formData.append("key", `${process.env.API_KEY}`);
+  formData.append("txt", inputText);
+  formData.append("lang", "en");  // 2-letter code, like en es fr ...
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.strigify(formData),
+    redirect: 'follow'
+  };
+ 
+  const formText = document.getElementById('name').value
+
+   fetch("http://localhost:8081/sentiment", requestOptions)
+
+  });
+    throw new Error ('NETWORK RESPONSE NOT OK');
+  }
+}
+
+  
+      
+      
+      
+      // .then(res => res.json())
+      // .then(function (data) {
+      //       document.getElementById('results').innerHTML = data.message
+      //       document.getElementById('agreement').innerHTML = "Agreement : " + data.agreement
+      //       document.getElementById('confidence').innerHTML = "Confidence : " + data.confidence
            
-            // document.getElementById('resultSection').className = ""
-        })
-    }};
+      //   })
+    // }}
+
+  // )}
   
 //   function displaySentiments(data)  {
 //   const agreement= data.agreement;
