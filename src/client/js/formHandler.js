@@ -1,5 +1,6 @@
  function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); //stop page from reloading
+    
     const formText = document.getElementById('name').value
   if (Client.checkForName(formText)) {
   console.log("::: Form Submitted :::")
@@ -17,44 +18,34 @@
      formData.append("txt", inputText);
      formData.append("lang", "en");  // 2-letter code, like en es fr ...
 
-  // const requestOptions = {
-  //   method: 'POST',
-  //   headers: {
-  //     'Accept': 'application/json',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.strigify(formData),
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.strigify(formData),
    
-  // };
+  };
+  
+  const response = await fetch('http://localhost:8081/sentiment', requestOptions)
+  .then((response) => {
+    if (response.ok) {
+    return response.json(); 
+    }else {
+      throw new Error ('NETWORK RESPONSE NOT OK');
+    }
+  })
+  .then(function(data) {
+    console.log(data);
+   displaySentiments(data);
+  })
+
  
-
-
-   await fetch('http://localhost:8081/sentiment') 
-    .then(res => res.json())
-    .then(function(res) {
-      console.log(res);
-      displaySentiments(res);
-        document.getElementById('results').innerHTML = res.results
-    })
-
-
-  // .then((response) => {
-  //   if (response.ok) {
-  //   return response.json(); 
-  //   }else {
-  //     throw new Error ('NETWORK RESPONSE NOT OK');
-  //   }
-  // })
-  // .then(function(data) {
-  //   console.log(data);
-  // //  displaySentiments(data);
-  // })
-
-
-  .catch((error) => {
-   console.log('not Available young lord');
-  })   
-},
+   .catch((error) => {
+       console.log('not Available young lord');
+      })   
+    },
 
   
       
