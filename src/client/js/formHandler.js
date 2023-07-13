@@ -27,7 +27,6 @@
     fetch('http://localhost:8081/sentiment')
     .then(res => res.json())
     .then(function(data) {
-        document.getElementById('results').innerHTML = data.results
         document.getElementById('agreement').innerHTML = "Agreement : " + data.agreement
         document.getElementById('subjectivity').innerHTML = "Subjectivity : " + data.subjectivity
         document.getElementById('confidence').innerHTML = "Confidence : " +  data.confidence
