@@ -13,12 +13,15 @@
   "license": "ISC",
   "description": "app that evaluates text sentiments",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-api-response": "^0.4.1",
     "form-data": "^3.0.0",
     "formdata-polyfill": "^3.0.19",
-    "node-fetch": "^2.6.11"
+    "node-fetch": "^2.6.11",
+    "request": "^2.88.2",
+    "response": "^0.18.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
