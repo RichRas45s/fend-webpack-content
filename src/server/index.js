@@ -62,12 +62,12 @@ process.env.API_KEY
 
 
 
-app.get('/sentiment', async function (req, res){
+app.post('/sentiment', async function (req, res){
   const text = req.body.text;
 const apiURL ="https://api.meaningcloud.com/sentiment-2.1"
 const formData = new FormData();
 formData.append("key", `${process.env.API_KEY}`);
-formData.append("txt", "I hate mondays");
+formData.append("txt", text);
 formData.append("lang", "en");  // 2-letter code, like en es fr ...
 
 
