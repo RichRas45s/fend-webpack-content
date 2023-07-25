@@ -1,23 +1,26 @@
-Installed  Node Version Manager NVM via Homebrew 
+Hello Udacity, this is my NLP PROJECT submission
+I have been working on this quite extensively. 
+Please review... 
 
-Using Node 14  & webpack 4 
+1. Installed  Node Version Manager NVM via Homebrew 
 
-I start with  ' source $(brew --prefix nvm)/nvm.sh '  on command line 
+2. Using Node 14  & webpack 4 
+
+3. I start with  ' source $(brew --prefix nvm)/nvm.sh '  on command line 
 after reviewing some error codes on compatibilty and
 dependencies issues this worked for me, 
 
-
-I have been working  from the lessons files because I sorted out 
+4. I have been working  from the Udacity lessons files because I sorted out 
 all dependencies in this project. 
 
- Installed Environment Varible
+5. Installed Environment Varible
 
- Installed Jest
+6. Installed Jest
 
-Created _test_ Folder has (2) test functions
+7. Created _test_ Folder has (2) test functions
 
 
- Installed Service Workers 
+8. Installed Service Workers 
 
 extra
   I looked up validating A URL USING REGEX and implemented /replaced name checker function
