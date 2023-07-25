@@ -1,7 +1,12 @@
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: url("/src/client/images/ScIFI.jpg");
+    background-size: 100%; 
+    background-repeat: no-repeat;
+    
 }
 
 main {
@@ -11,4 +16,44 @@ main {
 section {
     max-width: 800px;
     margin: 50px auto;
+    color:white;
+   
+}
+
+.logo {
+    width: 3rem;
+    height: 3rem;
+    
+}
+
+
+
+.nav_links {
+    list-style: none;
+   
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 15px;
+    
+}
+    
+.nav_links li a {
+    color:rgb(238, 242, 246);
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover{
+    color: rgb(235, 192, 83);
+}
+.lang {
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    margin-bottom: 10px;
+    color: rgb(245, 255, 255);
+    background-color: black;
+
+
 }

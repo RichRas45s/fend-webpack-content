@@ -4,8 +4,7 @@
     event.preventDefault(); //stop page from reloading
     
     const formText = document.getElementById('name').value
-  // if (Client.checkForName(formText)) {
-    Client.checkForName(formText)
+    Client.isValidURL(formText)
     // console.log("::: Form Submitted :::")
     console.log(formText);
     
@@ -39,7 +38,7 @@
         })
         .then(res => res.json())
         .then(function(data) {
-        document.getElementById('text').innerHTML = "You Wrote : "  + formText
+        document.getElementById('text').innerHTML = "You Wrote : "  + formText 
         document.getElementById('agreement').innerHTML = "Agreement : " + data.agreement
         document.getElementById('subjectivity').innerHTML = "Subjectivity : " + data.subjectivity
         document.getElementById('confidence').innerHTML = "Confidence : " +  data.confidence
@@ -49,26 +48,9 @@
 
     })
 
-    //   }
 
-        
-    // }
-
-
-
-//     fetch('http://localhost:8081/sentiment')
-//     .then(res => res.json())
-//     .then(function(data) {
-//         document.getElementById('agreement').innerHTML = "Agreement : " + data.agreement
-//         document.getElementById('subjectivity').innerHTML = "Subjectivity : " + data.subjectivity
-//         document.getElementById('confidence').innerHTML = "Confidence : " +  data.confidence
-//         document.getElementById('irony').innerHTML = "Irony : " +  data.irony
-//         document.getElementById('model').innerHTML = "Model : " +  data.model
-//         document.getElementById('score_tag').innerHTML = "Score_Tag : " +  data.score_tag
-
-//     })
 }
-    // )}
+   
 
 
 export { handleSubmit }
