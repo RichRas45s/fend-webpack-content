@@ -19,6 +19,10 @@ Created _test_ Folder has (2) test functions
 
  Installed Service Workers 
 
+extra
+  I looked up validating A URL USING REGEX and implemented /replaced name checker function
+  to check the URL validity using the same/single input line.  
+
 
  
 
