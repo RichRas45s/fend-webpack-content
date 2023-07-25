@@ -4,28 +4,23 @@ Using Node 14  & webpack 4
 
 I start with  ' source $(brew --prefix nvm)/nvm.sh '  on command line 
 after reviewing some error codes on compatibilty and
-dependencies  issues this worked for me, 
+dependencies issues this worked for me, 
 
 
-  
-
-
-
-
-
-just have been working  from the lessons files because i sorted out 
+I have been working  from the lessons files because I sorted out 
 all dependencies in this project. 
 
-Installed service workers , jest 
+ Installed Environment Varible
+
+ Installed Jest
+
+Created _test_ Folder has (2) test functions
 
 
-installed Environment Plugin 
-
-a
+ Installed Service Workers 
 
 
-
-
+ 
 
 
 
